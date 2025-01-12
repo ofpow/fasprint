@@ -28,6 +28,7 @@ void read_file(char *file_path) {
     }
 
     fread(&h, sizeof(fas_header), 1, f);
+    if (h.signature != 0x1A736166) {fprintf(stderr, "tried to read non .fas file %s\n", file_path); exit(1);}
 
     string_table = calloc(sizeof(char), h.string_table_len);
     fread(string_table, sizeof(char), h.string_table_len, f);
