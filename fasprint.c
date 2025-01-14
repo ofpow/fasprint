@@ -81,8 +81,7 @@ void print_symbol_table(void) {
             char *pstr = preproc_src + sym.symbol_name_offset;
             printf("Symbol name: %.*s\n", pstr[0], pstr + 1);
         }
-        printf("Symbol value: %ld\n", sym.value);
-        printf("Symbol data size: %d\n", sym.data_size);
+        printf("Symbol value: %ld %lx\n", sym.value, sym.value);
 
         if (verbose) {
             symbol_flags flags = sym.flags;
@@ -103,6 +102,7 @@ void print_symbol_table(void) {
             printf("Last used in pass: %d\n", sym.pass_last_used);
             printf("reloc: %d\n", sym.relative_section_info);
             printf("Symbol preproc source offset: %d\n", sym.symbol_line_offset);
+            printf("Symbol data size: %d\n", sym.data_size);
         }
 
         printf("\n");
