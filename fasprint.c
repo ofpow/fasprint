@@ -81,7 +81,7 @@ void print_symbol_table(void) {
             char *pstr = preproc_src + sym.symbol_name_offset;
             printf("Symbol name: %.*s\n", pstr[0], pstr + 1);
         }
-        printf("Symbol value: %ld %lx\n", sym.value, sym.value);
+        printf("Symbol value: %ld 0x%lx\n", sym.value, sym.value);
 
         if (verbose) {
             symbol_flags flags = sym.flags;
